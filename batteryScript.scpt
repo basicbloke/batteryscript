@@ -3,7 +3,7 @@ tell Cap to set {wallPower} to {last word of paragraph 1}
 if wallPower = "Yes" then
 	return 0
 else
-	set battery_percent to (do shell script "pmset -g batt | grep -Eo \"\\d+%\" | cut -d% -f1") as number
+    set battery_percent to (do shell script "pmset -g batt | grep -Eo '([0-9]{1,3})%' | cut -d% -f1") as number
 	set low_percent to 25
 	set critical_percent to 15
 	set low_percent_delay_between_alerts to 180 -- number is in seconds
